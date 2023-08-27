@@ -7,7 +7,7 @@ from Fake.fake import predict_fake_text, predict_fake_file
 from Meme.meme import analyze_meme
 
 
-application = Flask(__name__)
+app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 
@@ -15,7 +15,7 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 #                 SENTIMENT
 ############################################################################################
 
-@application .route('/text_sentiment', methods=['POST'])
+@app.route('/text_sentiment', methods=['POST'])
 def text_sentiment():
     return predict_text()
 
@@ -23,7 +23,7 @@ def text_sentiment():
 def file_sentiment():
     return predict_file()
 
-@application .route('/audio_sentiment', methods=['POST'])
+@app.route('/audio_sentiment', methods=['POST'])
 def audio_sentiment():
     return predict_audio()
 
@@ -32,7 +32,7 @@ def audio_sentiment():
 #                  CHURN
 ############################################################################################
 
-@application .route('/churn', methods=['POST'])
+@app.route('/churn', methods=['POST'])
 def churn():
     return process_file()
 
@@ -41,7 +41,7 @@ def churn():
 #                  SOCIAL
 ############################################################################################
 
-@application .route('/social', methods=['POST'])
+@app.route('/social', methods=['POST'])
 def social_analysis():
     return get_comments()
 
@@ -50,11 +50,11 @@ def social_analysis():
 #                  Fake
 ############################################################################################
 
-@application .route('/fake_text', methods=['POST'])
+@app.route('/fake_text', methods=['POST'])
 def fake_analysis_text():
     return predict_fake_text()
 
-@application .route('/fake_file', methods=['POST'])
+@app.route('/fake_file', methods=['POST'])
 def fake_analysis_file():
     return predict_fake_file()
 
@@ -63,10 +63,10 @@ def fake_analysis_file():
 #                  Meme
 ############################################################################################
 
-@application .route('/meme', methods=['POST'])
+@app.route('/meme', methods=['POST'])
 def meme_analysis():
     return analyze_meme()
 
 if __name__ == '__main__':
-    app.run(host='localhost', port=5000, debug=False)
+    app.run(host='0.0.0.0', port=5000, debug=False)
     
