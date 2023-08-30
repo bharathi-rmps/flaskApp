@@ -19,7 +19,7 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 def text_sentiment():
     return predict_text()
 
-@application .route('/file_sentiment', methods=['POST'])
+@app.route('/file_sentiment', methods=['POST'])
 def file_sentiment():
     return predict_file()
 
