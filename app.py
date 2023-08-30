@@ -2,7 +2,7 @@ from flask import *
 from flask_cors import CORS
 
 from Churn.churn import process_file
-from Sentiment.sentiment import predict_text, predict_file, predict_audio
+# from Sentiment.sentiment import predict_text, predict_file, predict_audio
 from Social.social import get_comments
 from Fake.fake import predict_fake_text, predict_fake_file
 from Meme.meme import analyze_meme
@@ -12,21 +12,21 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 
-############################################################################################
-#                 SENTIMENT
-############################################################################################
+# ############################################################################################
+# #                 SENTIMENT
+# ############################################################################################
 
-@app.route('/text_sentiment', methods=['POST'])
-def text_sentiment():
-    return predict_text()
+# @app.route('/text_sentiment', methods=['POST'])
+# def text_sentiment():
+#     return predict_text()
 
-@app.route('/file_sentiment', methods=['POST'])
-def file_sentiment():
-    return predict_file()
+# @app.route('/file_sentiment', methods=['POST'])
+# def file_sentiment():
+#     return predict_file()
 
-@app.route('/audio_sentiment', methods=['POST'])
-def audio_sentiment():
-    return predict_audio()
+# @app.route('/audio_sentiment', methods=['POST'])
+# def audio_sentiment():
+#     return predict_audio()
 
 
 ############################################################################################
