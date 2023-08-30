@@ -39,6 +39,7 @@ jobs:
           path: |
             . 
             !venv/
+            !/tf_model/tf_model.h5
 
   deploy:
     runs-on: ubuntu-latest
