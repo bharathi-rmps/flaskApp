@@ -61,3 +61,9 @@ jobs:
           app-name: 'FlaskkAPI'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_42A00BD909024166B53770816BA00EE0 }}
+
+      - name: 'Start Flask app'
+        run: |
+          cd ${{ github.workspace }}
+          source venv/bin/activate
+          python app.py  # Replace 'app.py' with your actual entry point filename
